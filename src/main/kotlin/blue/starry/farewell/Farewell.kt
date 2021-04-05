@@ -37,21 +37,21 @@ object Farewell {
             listOf(
                 FollowingUsers.selectAll().map {
                     AbstractDBUser(
-                        id = it[FollowingUsers.id].value,
+                        id = it[FollowingUsers.id],
                         screenName = it[FollowingUsers.screenName],
                         name = it[FollowingUsers.name]
                     )
                 },
                 FollowerUsers.selectAll().map {
                     AbstractDBUser(
-                        id = it[FollowerUsers.id].value,
+                        id = it[FollowerUsers.id],
                         screenName = it[FollowerUsers.screenName],
                         name = it[FollowerUsers.name]
                     )
                 },
                 InactiveUsers.selectAll().map {
                     AbstractDBUser(
-                        id = it[InactiveUsers.id].value,
+                        id = it[InactiveUsers.id],
                         screenName = it[InactiveUsers.screenName],
                         name = it[InactiveUsers.name]
                     )
