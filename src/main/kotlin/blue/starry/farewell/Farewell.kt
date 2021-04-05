@@ -182,7 +182,7 @@ object Farewell {
                             url = "https://twitter.com/${user.screenName}",
                             iconUrl = user.profileImageUrlHttps
                         ),
-                        description = "現在 ${if (relationship.source.following) "片思い" else "関係消滅"}中です",
+                        description = "現在, ${if (relationship.source.following) "片思い" else "関係消滅"}中です",
                         fields = listOf(
                             DiscordEmbed.Field(
                                 name = "フォロワー / フォロー",
@@ -207,7 +207,7 @@ object Farewell {
 
             FollowerUsers.deleteAll()
             followerUsers.forEach { user ->
-                FollowingUsers.insert {
+                FollowerUsers.insert {
                     it[id] = user.id
                     it[screenName] = user.screenName
                     it[name] = user.name
