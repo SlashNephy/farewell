@@ -84,7 +84,7 @@ object Farewell {
         // フォロワーとフォローの減少分を探す
         val followingUserIdsDelta = previousFollowingUserIds.filter { it !in followingUserIds }
         val followerUserIdsDelta = previousFollowerUserIds.filter { it !in followerUserIds }
-        val delta = (followingUserIdsDelta + followerUserIdsDelta).toSet()
+        val delta = (followingUserIdsDelta + followerUserIdsDelta - Env.IGNORE_USER_IDS).toSet()
         for (userId in delta) {
             val user = try {
                 FarewellTwitterClient.users.showByUserId(userId = userId).execute().result

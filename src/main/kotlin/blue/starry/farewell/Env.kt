@@ -10,6 +10,7 @@ object Env {
 
     val INTERVAL_SECONDS by long { 60 }
     val DISCORD_WEBHOOK_URL by string
+    val IGNORE_USER_IDS by longList
 
     val DRYRUN by boolean
 }
@@ -34,4 +35,13 @@ private fun String?.toBooleanFazzy(): Boolean {
 private val boolean: ReadOnlyProperty<Env, Boolean>
     get() = ReadOnlyProperty { _, property ->
         System.getenv(property.name).toBooleanFazzy()
+    }
+
+private val longList: ReadOnlyProperty<Env, List<Long>>
+    get() = ReadOnlyProperty { _, property ->
+        System.getenv()
+            .filterKeys { it.startsWith(property.name) }
+            .flatMap { it.value.split(",") }
+            .filter { it.isNotBlank() }
+            .mapNotNull { it.trim().toLongOrNull() }
     }
