@@ -15,7 +15,7 @@ on:
       - published
 
 env:
-  DOCKER_BASE_NAME: slashnephy/farewell
+  DOCKER_BASE_NAME: ghcr.io/slashnephy/farewell
 
 jobs:
   build:
@@ -28,8 +28,9 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Prepare image tag (master)
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
