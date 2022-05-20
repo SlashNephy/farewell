@@ -2,7 +2,7 @@
 
 👋 A tiny tool to notify when you are unfollowed or blocked by your followers on Twitter
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.4.30-blue)](https://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.6-blue)](https://kotlinlang.org)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/SlashNephy/farewell)](https://github.com/SlashNephy/farewell/releases)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/SlashNephy/farewell/Docker)](https://hub.docker.com/r/slashnephy/farewell)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/slashnephy/farewell/latest)](https://hub.docker.com/r/slashnephy/farewell)
@@ -13,7 +13,7 @@
 
 ## Requirements
 
-- Java 8 or later
+- Java 17 or later
 
 ## Get Started
 
@@ -21,11 +21,11 @@
 
 There are some image tags.
 
-- `slashnephy/farewell:latest`  
+- `ghcr.io/slashnephy/farewell:latest`  
   Automatically published every push to `master` branch.
-- `slashnephy/farewell:dev`  
+- `ghcr.io/slashnephy/farewell:dev`  
   Automatically published every push to `dev` branch.
-- `slashnephy/farewell:<version>`  
+- `ghcr.io/slashnephy/farewell:<version>`  
   Coresponding to release tags on GitHub.
 
 `docker-compose.yml`
@@ -36,7 +36,7 @@ version: '3.8'
 services:
   farewell:
     container_name: farewell
-    image: slashnephy/farewell:latest
+    image: ghcr.io/slashnephy/farewell
     restart: always
     environment:
       # Twitter の資格情報 (必須)
