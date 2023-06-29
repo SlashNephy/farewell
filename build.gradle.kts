@@ -10,8 +10,8 @@ repositories {
 
 dependencies {
     implementation("blue.starry:penicillin:6.2.3")
-    implementation("io.ktor:ktor-client-cio:1.6.8")
-    implementation("io.ktor:ktor-client-serialization:1.6.8")
+    implementation("io.ktor:ktor-client-cio:2.3.2")
+    implementation("io.ktor:ktor-client-serialization:2.3.2")
 
     implementation("org.jetbrains.exposed:exposed-jdbc:0.38.2")
     implementation("org.jetbrains.exposed:exposed-java-time:0.38.2")
